@@ -21,88 +21,91 @@
     <link rel="stylesheet" href="/bulma/css/bulma.min.css">
  </head>
  <body>
-    <h1>Register here!</h1>
-    <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
-    <form method="post" action="index.php" enctype="multipart/form-data" >
-        <div class="field">
-            <label class="label">Name</label>
-            <div class="control">
-                <input class="input" type="text" name="name" id="name" placeholder="e.g Alex Smith">
+    <div class="container">
+        <h1>Register here!</h1>
+        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <form method="post" action="index.php" enctype="multipart/form-data" >
+            <div class="field">
+                <label class="label">Name</label>
+                <div class="control">
+                    <input class="input" type="text" name="name" id="name" placeholder="e.g Alex Smith">
+                </div>
             </div>
-        </div>
 
-        <div class="field">
-            <label class="label">Email</label>
-            <div class="control">
-                <input class="input" type="email" name="email" id="email" placeholder="e.g. alexsmith@gmail.com">
+            <div class="field">
+                <label class="label">Email</label>
+                <div class="control">
+                    <input class="input" type="email" name="email" id="email" placeholder="e.g. alexsmith@gmail.com">
+                </div>
             </div>
-        </div>
 
-        <div class="field">
-            <label class="label">Job</label>
-            <div class="control">
-                <input class="input" type="text" name="job" id="job" placeholder="e.g. Programmer">
+            <div class="field">
+                <label class="label">Job</label>
+                <div class="control">
+                    <input class="input" type="text" name="job" id="job" placeholder="e.g. Programmer">
+                </div>
             </div>
-        </div>
-        <input type="submit" name="submit" value="Submit" />
-        <input type="submit" name="load_data" value="Load Data" />
-    </form>
-    <?php
-        $host = "antoni.database.windows.net";
-        $user = "Antoni";
-        $pass = "Wijaya123";
-        $db = "kwok";
-        try {
-            $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
-            $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
-        } catch(Exception $e) {
-            echo "Failed: " . $e;
-        }
-        if (isset($_POST['submit'])) {
+            <input type="submit" name="submit" value="Submit" />
+            <input type="submit" name="load_data" value="Load Data" />
+        </form>
+        <?php
+            $host = "antoni.database.windows.net";
+            $user = "Antoni";
+            $pass = "Wijaya123";
+            $db = "kwok";
             try {
-                $name = $_POST['name'];
-                $email = $_POST['email'];
-                $job = $_POST['job'];
-                $date = date("Y-m-d");
-                // Insert data
-                $sql_insert = "INSERT INTO Users (name, email, job, date) 
-                            VALUES (?,?,?,?)";
-                $stmt = $conn->prepare($sql_insert);
-                $stmt->bindValue(1, $name);
-                $stmt->bindValue(2, $email);
-                $stmt->bindValue(3, $job);
-                $stmt->bindValue(4, $date);
-                $stmt->execute();
+                $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
+                $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
             } catch(Exception $e) {
                 echo "Failed: " . $e;
             }
-            echo "<h3>Your're registered!</h3>";
-        } else if (isset($_POST['load_data'])) {
-            try {
-                $sql_select = "SELECT * FROM Users";
-                $stmt = $conn->query($sql_select);
-                $registrants = $stmt->fetchAll(); 
-                if(count($registrants) > 0) {
-                    echo "<h2>People who are registered:</h2>";
-                    echo "<table>";
-                    echo "<tr><th>Name</th>";
-                    echo "<th>Email</th>";
-                    echo "<th>Job</th>";
-                    echo "<th>Date</th></tr>";
-                    foreach($registrants as $registrant) {
-                        echo "<tr><td>".$registrant['name']."</td>";
-                        echo "<td>".$registrant['email']."</td>";
-                        echo "<td>".$registrant['job']."</td>";
-                        echo "<td>".$registrant['date']."</td></tr>";
-                    }
-                    echo "</table>";
-                } else {
-                    echo "<h3>No one is currently registered.</h3>";
+            if (isset($_POST['submit'])) {
+                try {
+                    $name = $_POST['name'];
+                    $email = $_POST['email'];
+                    $job = $_POST['job'];
+                    $date = date("Y-m-d");
+                    // Insert data
+                    $sql_insert = "INSERT INTO Users (name, email, job, date) 
+                                VALUES (?,?,?,?)";
+                    $stmt = $conn->prepare($sql_insert);
+                    $stmt->bindValue(1, $name);
+                    $stmt->bindValue(2, $email);
+                    $stmt->bindValue(3, $job);
+                    $stmt->bindValue(4, $date);
+                    $stmt->execute();
+                } catch(Exception $e) {
+                    echo "Failed: " . $e;
                 }
-            } catch(Exception $e) {
-                echo "Failed: " . $e;
+                echo "<h3>Your're registered!</h3>";
+            } else if (isset($_POST['load_data'])) {
+                try {
+                    $sql_select = "SELECT * FROM Users";
+                    $stmt = $conn->query($sql_select);
+                    $registrants = $stmt->fetchAll(); 
+                    if(count($registrants) > 0) {
+                        echo "<h2>People who are registered:</h2>";
+                        echo "<table>";
+                        echo "<tr><th>Name</th>";
+                        echo "<th>Email</th>";
+                        echo "<th>Job</th>";
+                        echo "<th>Date</th></tr>";
+                        foreach($registrants as $registrant) {
+                            echo "<tr><td>".$registrant['name']."</td>";
+                            echo "<td>".$registrant['email']."</td>";
+                            echo "<td>".$registrant['job']."</td>";
+                            echo "<td>".$registrant['date']."</td></tr>";
+                        }
+                        echo "</table>";
+                    } else {
+                        echo "<h3>No one is currently registered.</h3>";
+                    }
+                } catch(Exception $e) {
+                    echo "Failed: " . $e;
+                }
             }
-        }
-    ?>
+        ?>
+    </div>
+    
  </body>
  </html>
