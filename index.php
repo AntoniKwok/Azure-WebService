@@ -22,8 +22,8 @@
  </head>
  <body>
     <div class="container">
-        <h1>Register here!</h1>
-        <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
+        <p class="title is-1">Register here!</p>
+        <p class="subtitle is-3">Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
         <form method="post" action="index.php" enctype="multipart/form-data" >
             <div class="field">
                 <label class="label">Name</label>
