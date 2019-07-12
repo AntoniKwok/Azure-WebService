@@ -24,23 +24,25 @@
     <h1>Register here!</h1>
     <p>Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
     <form method="post" action="index.php" enctype="multipart/form-data" >
-        <div class="control has-icons-left has-icons-right">
-            <input class="input" type="text" name="name" id="name" placeholder="Name">
-            <span class="icon is-small is-left">
-                <i class="fas fa-address-card"></i>
-            </span>
+        <div class="field">
+            <label class="label">Name</label>
+            <div class="control">
+                <input class="input" type="text" name="name" id="name" placeholder="e.g Alex Smith">
+            </div>
         </div>
-        <div class="control has-icons-left has-icons-right">
-            <input class="input" type="email" name="email" id="email" placeholder="Email">
-            <span class="icon is-small is-left">
-                <i class="fas fa-envelope"></i>
-            </span>
+
+        <div class="field">
+            <label class="label">Email</label>
+            <div class="control">
+                <input class="input" type="email" name="email" id="email" placeholder="e.g. alexsmith@gmail.com">
+            </div>
         </div>
-        <div class="control has-icons-left has-icons-right">
-            <input class="input"type="text" name="job" id="job" placeholder="Job">
-            <span class="icon is-small is-left">
-                <i class="fas fa-briefcase"></i>
-            </span>
+
+        <div class="field">
+            <label class="label">Job</label>
+            <div class="control">
+                <input class="input" type="text" name="job" id="job" placeholder="e.g. Programmer">
+            </div>
         </div>
         <input type="submit" name="submit" value="Submit" />
         <input type="submit" name="load_data" value="Load Data" />
