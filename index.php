@@ -26,10 +26,10 @@
        <input type="submit" name="load_data" value="Load Data" />
  </form>
  <?php
-    $host = "blujackdb.database.windows.net";
-    $user = "ai";
-    $pass = "Awe19121999";
-    $db = "mydb";
+    $host = "antoni.database.windows.net";
+    $user = "Antoni";
+    $pass = "Wijaya123";
+    $db = "kwok";
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
