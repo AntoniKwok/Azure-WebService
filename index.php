@@ -84,6 +84,7 @@
                     $stmt = $conn->query($sql_select);
                     $registrants = $stmt->fetchAll(); 
                     if(count($registrants) > 0) {
+                        echo "<link rel='stylesheet' href='/bulma/css/bulma.min.css'>";
                         echo "<h2>People who are registered:</h2>";
                         echo "<table class='table is-fullwidth'>";
                         echo "<tr><th>Name</th>";
