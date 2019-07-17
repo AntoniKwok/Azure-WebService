@@ -85,7 +85,7 @@
                     $registrants = $stmt->fetchAll(); 
                     if(count($registrants) > 0) {
                         echo "<h2>People who are registered:</h2>";
-                        echo "<table>";
+                        echo "<table class='table is-fullwidth'>";
                         echo "<tr><th>Name</th>";
                         echo "<th>Email</th>";
                         echo "<th>Job</th>";
