@@ -21,6 +21,20 @@
     <link rel="stylesheet" href="/bulma/css/bulma.min.css">
  </head>
  <body>
+    <nav class="navbar" role="navigation" aria-label="main navigation">
+
+        <div id="navbarBasicExample" class="navbar-menu">
+            <div class="navbar-start">
+                <a class="navbar-item" href="index.php">
+                    Register
+                </a>
+
+                <a class="navbar-item" href="analyze.php">
+                    Analyze
+                </a>
+            </div>
+        </div>
+    </nav>
     <div class="container">
         <p class="title is-1">Register here!</p>
         <p class="subtitle is-3">Fill in your name and email address, then click <strong>Submit</strong> to register.</p>
