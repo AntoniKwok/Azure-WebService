@@ -6,9 +6,12 @@
     use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
     use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
-    $connectionString = "DefaultEndpointsProtocol=https://kwoks.blob.core.windows.net/mycontainer;AccountName=".'kwoks'.";AccountKey=".'GNU7bWnM4Ws5Zcg/FZB7T0YtVEd+kTgZpODhoydogcSCefqmDua3Z+zby8jne6iSlve0GuemBhIhXQ7nzH6J6Q==';
+    $connectionString = "DefaultEndpointsProtocol=https;AccountName=".'kwoks'.";AccountKey=".'GNU7bWnM4Ws5Zcg/FZB7T0YtVEd+kTgZpODhoydogcSCefqmDua3Z+zby8jne6iSlve0GuemBhIhXQ7nzH6J6Q==';
+                        "BlobEndPoint=https://kwoks.blob.core.windows.net/mycontainer";
+                        
+    // $connectionString = "DefaultEndpointsProtocol=https;AccountN"
     $containerName = "mycontainer";
-
+    //BlobEndpoint=https://kwoks.blob.core.windows.net/;QueueEndpoint=https://kwoks.queue.core.windows.net/;FileEndpoint=https://kwoks.file.core.windows.net/;TableEndpoint=https://kwoks.table.core.windows.net/;SharedAccessSignature=sv=2018-03-28&ss=bfqt&srt=sco&sp=rwdlacup&se=2019-07-27T21:22:57Z&st=2019-07-27T13:22:57Z&spr=https&sig=Z38KuCsjdMa5jTSCJxSOABrRhy2xr%2FqOewVN6XX%2Fd78%3D
     die($connectionString);
     $blobClient = BlobRestProxy::createBlobService($connectionString);
 
