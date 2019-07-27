@@ -3,7 +3,7 @@
         $namaFile = $_FILES['image']['name'];
         $namaSementara = $_FILES['image']['tmp_name'];
 
-        $dirUpload = "images/";
+        $dirUpload = "";
 
         $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
 
