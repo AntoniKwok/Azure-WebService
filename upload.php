@@ -8,6 +8,8 @@
 
     $connectionString = "DefaultEndpointsProtocol=https://kwoks.blob.core.windows.net/mycontainer;AccountName=".'kwoks'.";AccountKey=".'GNU7bWnM4Ws5Zcg/FZB7T0YtVEd+kTgZpODhoydogcSCefqmDua3Z+zby8jne6iSlve0GuemBhIhXQ7nzH6J6Q==';
     $containerName = "mycontainer";
+
+    die($connectionString);
     $blobClient = BlobRestProxy::createBlobService($connectionString);
 
     if(isset($_POST['submit'])){
@@ -16,21 +18,21 @@
 
         $dirUpload = "";
 
-        print_r($blobClient);
+        // print_r($blobClient);
 
-        // $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
+        $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
 
         
-        // if ($terupload) {
-        //     echo "Upload berhasil!<br/>";
-        //     echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
-        //     $blobClient->createBlockBlob($containerName, $namaFile, $namaSementara);
+        if ($terupload) {
+            echo "Upload berhasil!<br/>";
+            echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
+            $blobClient->createBlockBlob($containerName, $namaFile, $namaSementara);
 
-        //     $listBlobsOptions = new ListBlobsOptions();
-        //     $listBlobsOptions->setPrefix("");
-        //     $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-        // } else {
-        //     echo "Upload Gagal!";
-        // }
+            $listBlobsOptions = new ListBlobsOptions();
+            $listBlobsOptions->setPrefix("");
+            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+        } else {
+            echo "Upload Gagal!";
+        }
     }
 ?>
