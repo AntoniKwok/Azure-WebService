@@ -6,6 +6,9 @@
     use MicrosoftAzure\Storage\Blob\Models\CreateContainerOptions;
     use MicrosoftAzure\Storage\Blob\Models\PublicAccessType;
 
+    $connectionString = "DefaultEndpointsProtocol=https://kwoks.blob.core.windows.net/mycontainer;AccountName=".'kwoks'.";AccountKey=".'GNU7bWnM4Ws5Zcg/FZB7T0YtVEd+kTgZpODhoydogcSCefqmDua3Z+zby8jne6iSlve0GuemBhIhXQ7nzH6J6Q==';
+    $containerName = "mycontainer";
+    $blobClient = BlobRestProxy::createBlobService($connectionString);
 
     if(isset($_POST['submit'])){
         $namaFile = $_FILES['image']['name'];
@@ -19,6 +22,11 @@
         if ($terupload) {
             echo "Upload berhasil!<br/>";
             echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
+            $blobClient->createBlockBlob($containerName, $namaFile, $namaSementara);
+
+            $listBlobsOptions = new ListBlobsOptions();
+            $listBlobsOptions->setPrefix("");
+            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
         } else {
             echo "Upload Gagal!";
         }
