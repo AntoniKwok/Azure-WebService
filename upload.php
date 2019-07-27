@@ -1,5 +1,5 @@
 <?php
-    if($isset($_POST['submit'])){
+    if(isset($_POST['submit'])){
         $namaFile = $_FILES['image']['name'];
         $namaSementara = $_FILES['image']['tmp_name'];
 
