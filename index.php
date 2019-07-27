@@ -25,7 +25,7 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="https://bluejack.azurewebsites.net/index.php">
+                <a class="navbar-item" href="https://bluejack.azurewebsites.net/">
                     Register
                 </a>
 
