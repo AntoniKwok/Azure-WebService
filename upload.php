@@ -110,8 +110,9 @@
             alert(errorString);
         });
     };
+    
 </script>
-
+<button onclick="processImage()">Analyze image</button>
 <div id="jsonOutput" style="width:600px; display:table-cell;">
         Response:
         <br><br>
