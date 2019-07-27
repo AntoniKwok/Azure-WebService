@@ -1,4 +1,4 @@
-<?php 
+<!-- <?php 
     // die('test');
     require_once "vendor/autoload.php"; 
 
@@ -47,7 +47,7 @@
     // $containerName = "blockblobs".generateRandomString();
     // $blobClient->createContainer($containerName, $createContainerOptions);
 
-?>
+?> -->
 
 <!DOCTYPE html>
 <html lang="en">
