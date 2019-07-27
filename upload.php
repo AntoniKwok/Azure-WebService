@@ -1,9 +1,14 @@
 <?php
     require_once "vendor/autoload.php"; 
-    use MicrosoftAzure\Storage\Blob\BlobRestProxy;
-    use MicrosoftAzure\Storage\Common\ServiceException;
+
+    use WindowsAzure\Common\ServicesBuilder;
+    use WindowsAzure\Common\ServiceException;
+    use WindowsAzure\Blob\Models\Block;
+    use WindowsAzure\Blob\Models\BlockList;
+    use WindowsAzure\Blob\Models\BlobBlockType;
+
     if(isset($_POST['submit'])){
-        $connectionString = "DefaultEndpointsProtocol=https;AccountName=".'kwoks'.";AccountKey=".'GNU7bWnM4Ws5Zcg/FZB7T0YtVEd+kTgZpODhoydogcSCefqmDua3Z+zby8jne6iSlve0GuemBhIhXQ7nzH6J6Q==';
+        $connectionString = "DefaultEndpointsProtocol=https://bluejack.azurewebsites.net;AccountName=".'kwoks'.";AccountKey=".'GNU7bWnM4Ws5Zcg/FZB7T0YtVEd+kTgZpODhoydogcSCefqmDua3Z+zby8jne6iSlve0GuemBhIhXQ7nzH6J6Q==';
         $namaFile = $_FILES['image']['name'];
         $namaSementara = $_FILES['image']['tmp_name'];
         
