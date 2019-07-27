@@ -1,4 +1,5 @@
 <?php 
+    die('test');
     require_once "vendor/autoload.php"; 
 
     use MicrosoftAzure\Storage\Common\ServiceException;
