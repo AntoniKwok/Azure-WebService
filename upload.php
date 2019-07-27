@@ -28,14 +28,12 @@
         if ($terupload) {
             echo "Upload berhasil!<br/>";
             echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
+            echo "<img src=".'https://bluejack.azurewebsites.net/'.$namaFile." alt=".$namaFile.">";
             $blobClient->createBlockBlob($containerName, $namaFile, $namaSementara);
 
             $listBlobsOptions = new ListBlobsOptions();
             $listBlobsOptions->setPrefix("");
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-
-
-            echo "<img src=".'https://bluejack.azurewebsites.net/'.$namaFile." alt=".$namaFile.">";
         } else {
             echo "Upload Gagal!";
         }
