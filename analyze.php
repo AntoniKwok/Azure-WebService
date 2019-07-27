@@ -2,8 +2,8 @@
     // die('test');
     require_once "vendor/autoload.php"; 
 
-    use MicrosoftAzure\Storage\Common\ServiceException;
-    use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+    // use MicrosoftAzure\Storage\Common\ServiceException;
+    // use MicrosoftAzure\Storage\Blob\BlobRestProxy;
 
     $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('account_name').";AccountKey=".getenv('account_key');
     $containerName = "";
