@@ -122,16 +122,6 @@
         ?>
     </div>
 
-
-    <form method="post" action="upload.php" enctype="multipart/form-data">
-        <div class="field">
-            <label class="label">Image</label>
-            <div class="control">
-                <input class="input" type="file" name="image" id="image">
-            </div>
-        </div>
-        <input type="submit" name="submit" value="Submit" />
-    </form>
     
  </body>
  </html>

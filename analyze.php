@@ -36,7 +36,7 @@
     </nav>
     <div class="container">
         <p class="title is-1">Upload Image!</p>
-        <form method="post" action="analyze.php" enctype="multipart/form-data">
+        <form method="post" action="upload.php" enctype="multipart/form-data">
             <div class="field">
                 <label class="label">Image</label>
                 <div class="control">

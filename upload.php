@@ -14,7 +14,5 @@
         } else {
             echo "Upload Gagal!";
         }
-        // $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-        // header("Location: analyze.php");
     }
 ?>
