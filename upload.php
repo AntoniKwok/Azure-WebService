@@ -33,8 +33,12 @@
             $listBlobsOptions = new ListBlobsOptions();
             $listBlobsOptions->setPrefix("");
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+
+
+            echo "<img src=".$dirUpload.$namaFile." alt=".$namaFile.">";
         } else {
             echo "Upload Gagal!";
         }
     }
 ?>
+
