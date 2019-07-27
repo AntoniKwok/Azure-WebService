@@ -13,8 +13,8 @@
     $blobClient = BlobRestProxy::createBlobService($connectionString);
  
     if($isset($_POST['submit'])){
-        $namaFile = $_FILES['berkas']['name'];
-        $namaSementara = $_FILES['berkas']['tmp_name'];
+        $namaFile = $_FILES['image']['name'];
+        $namaSementara = $_FILES['image']['tmp_name'];
 
         $dirUpload = "images/";
 
