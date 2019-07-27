@@ -3,7 +3,7 @@
     use MicrosoftAzure\Storage\Blob\BlobRestProxy;
     use MicrosoftAzure\Storage\Common\ServiceException;
     if(isset($_POST['submit'])){
-        $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('account_name').";AccountKey=".getenv('account_key');
+        $connectionString = "DefaultEndpointsProtocol=https;AccountName=".'kwoks'.";AccountKey=".'GNU7bWnM4Ws5Zcg/FZB7T0YtVEd+kTgZpODhoydogcSCefqmDua3Z+zby8jne6iSlve0GuemBhIhXQ7nzH6J6Q==';
         $namaFile = $_FILES['image']['name'];
         $namaSementara = $_FILES['image']['tmp_name'];
         
