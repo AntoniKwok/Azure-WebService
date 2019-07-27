@@ -25,11 +25,11 @@
 
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="index.php">
+                <a class="navbar-item" href="https://bluejack.azurewebsites.net/index.php">
                     Register
                 </a>
 
-                <a class="navbar-item" href="analyze.php">
+                <a class="navbar-item" href="https://bluejack.azurewebsites.net/analyze.php">
                     Analyze
                 </a>
             </div>

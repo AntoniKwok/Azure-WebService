@@ -13,11 +13,22 @@
     $blobClient = BlobRestProxy::createBlobService($connectionString);
  
     if($isset($_POST['submit'])){
-        $fileToUpload = strtolower($_FILES["image"]["name"]);
-        $content = fopen($_FILES["image"]["tempname"], "r");
+        $namaFile = $_FILES['berkas']['name'];
+        $namaSementara = $_FILES['berkas']['tmp_name'];
 
-        $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
-        header("Location: analyze.php");
+        $dirUpload = "images/";
+
+        $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
+
+
+        if ($terupload) {
+            echo "Upload berhasil!<br/>";
+            echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
+        } else {
+            echo "Upload Gagal!";
+        }
+        // $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+        // header("Location: analyze.php");
     }
     $listBlobOptions = new ListBlobsOptions();
     $listBlobOptions->setPrefix("");
@@ -63,11 +74,11 @@
     <nav class="navbar" role="navigation" aria-label="main navigation">
         <div id="navbarBasicExample" class="navbar-menu">
             <div class="navbar-start">
-                <a class="navbar-item" href="index.php">
+                <a class="navbar-item" href="https://bluejack.azurewebsites.net/index.php">
                     Register
                 </a>
 
-                <a class="navbar-item" href="analyze.php">
+                <a class="navbar-item" href="https://bluejack.azurewebsites.net/analyze.php">
                     Analyze
                 </a>
             </div>
