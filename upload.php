@@ -35,7 +35,7 @@
             $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
 
 
-            echo "<img src=".$dirUpload.$namaFile." alt=".$namaFile.">";
+            echo "<img src=".'https://bluejack.azurewebsites.net/'.$namaFile." alt=".$namaFile.">";
         } else {
             echo "Upload Gagal!";
         }
