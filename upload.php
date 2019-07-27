@@ -23,7 +23,7 @@
     
         $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
 
-        $containerName = "blobs".generateRandomString();
+        $containerName = "blobs".$namaFile;
         
         if ($terupload) {
             echo "Upload berhasil!<br/>";
