@@ -1,5 +1,49 @@
 <?php 
-    die('Cp');
+    // die('test');
+    require_once "vendor/autoload.php"; 
+
+    use MicrosoftAzure\Storage\Common\ServiceException;
+    use MicrosoftAzure\Storage\Blob\BlobRestProxy;
+
+    $connectionString = "DefaultEndpointsProtocol=https;AccountName=".getenv('account_name').";AccountKey=".getenv('account_key');
+    $containerName = "";
+ 
+    $blobClient = BlobRestProxy::createBlobService($connectionString);
+ 
+    if($isset($_POST['submit'])){
+        $namaFile = $_FILES['image']['name'];
+        $namaSementara = $_FILES['image']['tmp_name'];
+
+        $dirUpload = "images/";
+
+        $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
+
+
+        if ($terupload) {
+            echo "Upload berhasil!<br/>";
+            echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
+        } else {
+            echo "Upload Gagal!";
+        }
+        // $blobClient->createBlockBlob($containerName, $fileToUpload, $content);
+        // header("Location: analyze.php");
+    }
+    $listBlobOptions = new ListBlobsOptions();
+    $listBlobOptions->setPrefix("");
+    $result = $blobClient->listBlobs($containerName, $listBlobOptions);
+
+    // # Membuat BlobService yang merepresentasikan Blob service untuk storage account
+    // $createContainerOptions = new CreateContainerOptions();
+ 
+    // $createContainerOptions->setPublicAccess(PublicAccessType::CONTAINER_AND_BLOBS);
+ 
+    // // Menetapkan metadata dari container.
+    // $createContainerOptions->addMetaData("key1", "value1");
+    // $createContainerOptions->addMetaData("key2", "value2");
+ 
+    // $containerName = "blockblobs".generateRandomString();
+    // $blobClient->createContainer($containerName, $createContainerOptions);
+
 ?>
 
 <!DOCTYPE html>
