@@ -16,19 +16,21 @@
 
         $dirUpload = "";
 
-        $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
+        print_r($blobClient);
+
+        // $terupload = move_uploaded_file($namaSementara, $dirUpload.$namaFile);
 
         
-        if ($terupload) {
-            echo "Upload berhasil!<br/>";
-            echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
-            $blobClient->createBlockBlob($containerName, $namaFile, $namaSementara);
+        // if ($terupload) {
+        //     echo "Upload berhasil!<br/>";
+        //     echo "Link: <a href='".$dirUpload.$namaFile."'>".$namaFile."</a>";
+        //     $blobClient->createBlockBlob($containerName, $namaFile, $namaSementara);
 
-            $listBlobsOptions = new ListBlobsOptions();
-            $listBlobsOptions->setPrefix("");
-            $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
-        } else {
-            echo "Upload Gagal!";
-        }
+        //     $listBlobsOptions = new ListBlobsOptions();
+        //     $listBlobsOptions->setPrefix("");
+        //     $result = $blobClient->listBlobs($containerName, $listBlobsOptions);
+        // } else {
+        //     echo "Upload Gagal!";
+        // }
     }
 ?>
